@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Landing from "./pages/landing";
+import Home from "./pages/template";
+import Profile from "./pages/profile";
+import Preview from "./pages/preview";
+import CreateLink from "./pages/createLink";
+import MyLink from "./pages/myLink";
+
+import { Routes, Route } from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route exact path="/" element={<Landing />} />
+      <Route exact path="/home" element={<Home />} />
+      <Route exact path="/profile" element={<Profile />} />
+      <Route exact path="/preview" element={<Preview />} />
+      <Route exact path="/createlink" element={<CreateLink />} />
+      <Route exact path="/mylink" element={<MyLink />} />
+    </Routes>
   );
 }
 

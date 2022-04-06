@@ -1,0 +1,53 @@
+.all {
+    /* background-color: aqua; */
+    height: 100vh;
+    display: flex;
+}
+
+.all .leftPart {
+    flex: 20%;
+    /* background-color: aqua; */
+}
+
+.all .rightPart {
+    flex: 80%;
+    /* background-color: #ECECEC; */
+}
+
+.all .rightPart .main {
+    background-color: #ECECEC;
+    padding-left: 10px;
+    height: 85vh;
+}
+
+.all .rightPart .main .btn{
+    height: 40px;
+    margin-top: 20px;
+    align-items: center;
+    color: white;
+}
+
+.all .rightPart .main p{
+    color: white;
+    padding-top: 20px;
+}
+
+.all .rightPart .main .bottom{
+    display: flex;
+}
+
+.all .rightPart .main .bottom .leftCard{
+    background-color: azure;
+    flex: 70%;
+    border-radius: 10px;
+    
+}
+
+.all .rightPart .main .bottom .rightCard{
+    background-color: #ECECEC;
+    flex: 30%;
+}
+
+.leftCard::-webkit-scrollbar{
+    display: none;
+}

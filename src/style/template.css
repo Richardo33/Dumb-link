@@ -1,0 +1,24 @@
+.template {
+    /* background-color: aqua; */
+    display: flex;
+    height: 100vh;
+}
+
+.template .left {
+    flex: 20%;
+    /* background-color: aqua; */
+}
+
+.template .right {
+    flex: 80%;
+    /* background-color: blue; */
+}
+
+.template .right h3 {
+    padding: 20px 10px;
+}
+
+.template .right .main {
+background-color: #ECECEC;
+height: 580px;
+}

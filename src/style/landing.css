@@ -1,0 +1,36 @@
+.box {
+    background-image: url("../Assets/photo_2022-04-05_11-39-24.jpg");
+    height: 91vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h6 {
+    color: white;
+}
+
+h1 {
+    color: white;
+    font-size: 72px;
+}
+
+p {
+    font-size: 24px;
+    color: white;
+}
+
+.monitor{
+    margin-right: -200px;
+    /* background-color: aqua; */
+}
+
+.phone {
+    margin-left: -75%;
+    margin-top: 100px;
+}
+
+.btn {
+    align-items: center;
+}
+

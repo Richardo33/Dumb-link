@@ -1,0 +1,30 @@
+.myLink {
+    /* background-color: aqua; */
+    display: flex;
+    height: 100vh;
+}
+
+.myLink .leftpart {
+    /* background-color: blue; */
+    flex: 20%;
+}
+
+.myLink .rightpart{
+    /* background-color: brown; */
+    flex: 80%;
+}
+
+.myLink .rightpart .crad{
+    background-color: #ECECEC;
+    height: 85vh;
+}
+
+.myLink .rightpart .main .btn{
+    padding-top: 10px;
+    height: 40px;
+}
+
+.myLink .rightpart .main .btn p{
+    padding-top: 10px;
+    font-size: 15px;
+}

@@ -1,0 +1,30 @@
+.profile{
+    /* background-color: aqua; */
+    height: 100vh;
+    display: flex;
+}
+
+
+.profile .left {
+    flex : 20%;
+    /* background-color: aqua; */
+}
+
+.profile .right {
+    flex : 80%;
+    /* background-color: blueviolet; */
+}
+
+.profile .right h3 {
+    padding: 20px 20px;
+}
+
+.profile .right .main {
+    background-color: #ECECEC;
+    height: 580px;
+}
+
+.profile .right .main .card {
+    height: 200px;
+}
+
