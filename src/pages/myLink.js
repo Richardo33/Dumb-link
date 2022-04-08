@@ -68,17 +68,25 @@ function MyLink() {
                   <ListGroup.Item>Visit</ListGroup.Item>
                 </ListGroup>
                 <div className="pb-4 ms-5 d-flex align-Items-flex-end">
-                  <img className="ms-5" src={View} alt="" />
+                  <img
+                    onClick={() => navigate("/preview")}
+                    className="ms-5"
+                    src={View}
+                    style={{ cursor: "pointer" }}
+                    alt=""
+                  />
                   <img
                     onClick={() => navigate("/createlink")}
                     className="ms-5"
                     src={Edit}
+                    style={{ cursor: "pointer" }}
                     alt=""
                   />
                   <img
                     onClick={() => setShow(true)}
                     className="ms-5"
                     src={Delete}
+                    style={{ cursor: "pointer" }}
                     alt=""
                   />
                 </div>

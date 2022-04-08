@@ -8,11 +8,12 @@ import Vector from "../Assets/Vector.png";
 import Chain from "../Assets/link.png";
 import Logout from "../Assets/logout.png";
 import { useNavigate } from "react-router-dom";
+import "../style/sidebar.css";
 
 function Sidebar() {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="sidebar">
       <Navbar>
         <Container>
           <Navbar.Brand>
@@ -29,11 +30,11 @@ function Sidebar() {
             <Container>
               <Navbar.Brand>
                 <Link
-                  className="text-decoration-none text-dark ms-5"
+                  className="text-decoration-none text-dark ms-5 d-flex"
                   to="/home"
                 >
                   <img className="pe-2" src={Group} alt="" />
-                  Template
+                  <p>Template</p>
                 </Link>
               </Navbar.Brand>
             </Container>
@@ -41,13 +42,13 @@ function Sidebar() {
           <br />
           <Navbar>
             <Container>
-              <Navbar.Brand>
+              <Navbar.Brand className="navig">
                 <Link
-                  className="text-decoration-none text-dark ms-5"
+                  className="text-decoration-none text-dark ms-5 d-flex"
                   to="/profile"
                 >
                   <img className="pe-2" src={Vector} alt="" />
-                  Profile
+                  <p>Profile</p>
                 </Link>
               </Navbar.Brand>
             </Container>
@@ -57,11 +58,11 @@ function Sidebar() {
             <Container>
               <Navbar.Brand>
                 <Link
-                  className="text-decoration-none text-dark ms-5"
+                  className="text-decoration-none text-dark ms-5 d-flex"
                   to="/mylink"
                 >
                   <img className="pe-2" src={Chain} alt="" />
-                  My Link
+                  <p>My Link</p>
                 </Link>
               </Navbar.Brand>
             </Container>

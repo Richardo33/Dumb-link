@@ -51,3 +51,7 @@
 .leftCard::-webkit-scrollbar{
     display: none;
 }
+
+.btn-add{
+    height: 40px;
+}

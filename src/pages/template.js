@@ -19,12 +19,18 @@ function Home() {
         <h3>Template</h3>
         <div className="main container-fluid">
           <img
+            style={{ cursor: "pointer" }}
             onClick={() => navigate("/createlink")}
             className="mt-5"
             src={Phone1}
             alt=""
           />
-          <img className="mt-5" src={Phone2} alt="" />
+          <img
+            // style={{ cursor: "pointer" }}
+            className="mt-5"
+            src={Phone2}
+            alt=""
+          />
           <img className="mt-5" src={Phone3} alt="" />
           <img className="mt-5" src={Phone4} alt="" />
         </div>
