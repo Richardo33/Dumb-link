@@ -25,6 +25,10 @@
 }
 
 .profile .right .main .card {
-    height: 200px;
+    height: 250px;
+}
+
+.profile .right input:focus{
+    outline: none;
 }
 

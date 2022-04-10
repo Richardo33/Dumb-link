@@ -22,3 +22,8 @@
 background-color: #ECECEC;
 height: 580px;
 }
+
+.template .right .main img{
+    width: 250px;
+    height: auto;
+}

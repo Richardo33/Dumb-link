@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Navbar,
   Container,
@@ -9,41 +9,166 @@ import {
   Row,
   Col,
   Modal,
+  Alert,
 } from "react-bootstrap";
 import Logo from "../Assets/Frame.png";
 import Monitor from "../Assets/PC.png";
 import Phone from "../Assets/Phone.png";
 import "../style/landing.css";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/userContext";
+
+import { API, setAuthToken } from "../config/api";
+// import axios from "axios";
 
 function LandingPage() {
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState(false);
   const navigate = useNavigate();
+  const [state, dispacth] = useContext(UserContext);
+
+  const [message, setMessage] = useState(null);
+  // const [message, setMessage] = useState(null);
+
+  const [form, setForm] = useState({
+    fullname: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const body = JSON.stringify(form);
+      console.log(body);
+      const response = await API.post("/register", body, config);
+      console.log(response);
+      if (response.data.status == "success bung") {
+        console.log(response);
+        const alert = (
+          <Alert variant="success" className="py-1">
+            Success
+          </Alert>
+        );
+        setMessage(alert);
+      } else {
+        const alert = (
+          <Alert variant="danger" className="py-1">
+            Failed
+          </Alert>
+        );
+        setMessage(alert);
+      }
+    } catch (error) {
+      const alert = (
+        <Alert variant="danger" className="py-1">
+          Failed
+        </Alert>
+      );
+      setMessage(alert);
+    }
+  };
+
+  const [formLogin, setFormLogin] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChangeLogin = (e) => {
+    setFormLogin({
+      ...formLogin,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmitLogin = async (e) => {
+    try {
+      e.preventDefault();
+
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+
+      const body = JSON.stringify(formLogin);
+      // console.log(body);
+
+      const response = await API.post("/login", body, config);
+      console.log(response);
+
+      if (response?.status == 200) {
+        setAuthToken(response.data.data.token);
+
+        dispacth({
+          type: "LOGIN_SUCCESS",
+          payload: response.data.data,
+        });
+        navigate("/home");
+
+        const alert = (
+          <Alert variant="success" className="py-1">
+            Login success
+          </Alert>
+        );
+        setMessage(alert);
+      }
+    } catch (error) {
+      const alert = (
+        <Alert variant="danger" className="py-1">
+          Login failed
+        </Alert>
+      );
+      setMessage(alert);
+      console.log(error);
+    }
+  };
+  // console.log(state);
 
   return (
     <div>
       <Modal className="modalll" show={show} onHide={() => setShow(false)}>
         <Modal.Title className="mx-4 py-4">Register</Modal.Title>
-        <Form className="px-3">
-          <Form.Group className="modalInput" controlId="inputInSignUp">
+        {message && message}
+        <Form onSubmit={handleSubmit} className="px-3">
+          <Form.Group className="modalInput" controlId="inputregister">
             <Form.Control
               className="mb-4"
               type="email"
               placeholder="Email"
               name="email"
+              // value={email}
+              onChange={handleChange}
             />
             <Form.Control
               className="mb-4"
               type="password"
               placeholder="Password"
               name="password"
+              // value={password}
+              onChange={handleChange}
             />
             <Form.Control
               className="mb-4"
               type="text"
               placeholder="Full Name"
-              name="fullName"
+              name="fullname"
+              // value={fullname}
+              onChange={handleChange}
             />
           </Form.Group>
           <Button
@@ -51,7 +176,6 @@ function LandingPage() {
             style={{ height: "40px", width: "465px" }}
             variant="warning"
             type="submit"
-            onClick={() => navigate("/home")}
           >
             <p style={{ color: "white" }}> Register </p>
           </Button>
@@ -63,19 +187,22 @@ function LandingPage() {
 
       <Modal className="modalll" show={login} onHide={() => setLogin(false)}>
         <Modal.Title className="mx-4 py-4">Login</Modal.Title>
-        <Form className="px-3">
+        {message && message}
+        <Form onSubmit={handleSubmitLogin} className="px-3">
           <Form.Group className="modalInput" controlId="inputInSignUp">
             <Form.Control
               className="mb-4"
               type="email"
               placeholder="Email"
               name="email"
+              onChange={handleChangeLogin}
             />
             <Form.Control
               className="mb-4"
               type="password"
               placeholder="Password"
               name="password"
+              onChange={handleChangeLogin}
             />
           </Form.Group>
           <Button
@@ -83,7 +210,7 @@ function LandingPage() {
             style={{ height: "40px", width: "465px" }}
             variant="warning"
             type="submit"
-            onClick={() => navigate("/home")}
+            // onClick={() => navigate("/home")}
           >
             <p style={{ color: "white" }}> Login </p>
           </Button>

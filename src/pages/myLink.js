@@ -60,14 +60,33 @@ function MyLink() {
               <Box sx={{ display: "flex", alignItems: "flex-end" }}>
                 <img src={MyLogo} alt="" />
                 <ListGroup className="pb-2 ms-4 me-5 border-0">
-                  <ListGroup.Item>WaysFood </ListGroup.Item>
-                  <ListGroup.Item>localhost:3000/waysfood</ListGroup.Item>
+                  <ListGroup.Item
+                    style={{ backgroundColor: "#ECECEC", border: "none" }}
+                  >
+                    WaysFood{" "}
+                  </ListGroup.Item>
+                  <ListGroup.Item
+                    style={{ backgroundColor: "#ECECEC", border: "none" }}
+                  >
+                    localhost:3000/waysfood
+                  </ListGroup.Item>
                 </ListGroup>
-                <ListGroup className="pb-2 mx-5 border-0">
-                  <ListGroup.Item>10</ListGroup.Item>
-                  <ListGroup.Item>Visit</ListGroup.Item>
+                <ListGroup
+                  className="pb-2 mx-5 border-0"
+                  style={{ backgroundColor: "#ECECEC" }}
+                >
+                  <ListGroup.Item
+                    style={{ backgroundColor: "#ECECEC", border: "none" }}
+                  >
+                    10
+                  </ListGroup.Item>
+                  <ListGroup.Item
+                    style={{ backgroundColor: "#ECECEC", border: "none" }}
+                  >
+                    Visit
+                  </ListGroup.Item>
                 </ListGroup>
-                <div className="pb-4 ms-5 d-flex align-Items-flex-end">
+                <div className="group pb-4 ms-5 d-flex align-Items-flex-end">
                   <img
                     onClick={() => navigate("/preview")}
                     className="ms-5"

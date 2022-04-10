@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/createLink.css";
 import Sidebar from "../component/sidebar";
 import Phone1 from "../Assets/Phone.png";
@@ -19,6 +19,14 @@ function CreateLink() {
       link: "www.Instagram.com",
     },
   ];
+
+  const [imgBrand, setImgBrand] = useState(null);
+
+  const handleImg = (e) => {
+    e.preventDefault();
+    setImgBrand(URL.createObjectURL(e.target.files[0]));
+    console.log(imgBrand);
+  };
 
   return (
     <div className="all">
@@ -46,11 +54,33 @@ function CreateLink() {
             >
               <div className="ps-3">
                 <div>
-                  <img src={Chessboard} alt="" />
-                  <Button sx={{ bgcolor: "warning.main" }} className="btn ms-5">
-                    <p>Upload</p>
+                  {/* <img
+                    src={imgBrand}
+                    style={{ height: "auto", width: "100px" }}
+                    alt=""
+                  /> */}
+                  {imgBrand ? (
+                    <img
+                      src={imgBrand}
+                      style={{ height: "auto", width: "100px" }}
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      src={Chessboard}
+                      style={{ height: "auto", width: "100px" }}
+                    />
+                  )}
+                  <Button
+                    sx={{ bgcolor: "warning.main" }}
+                    style={{ height: "30px", marginLeft: "50px" }}
+                    component="label"
+                  >
+                    <p>Upload File</p>
+                    <input type="file" hidden onChange={handleImg} />
                   </Button>
                 </div>
+
                 <div className="mb-4">
                   <TextField
                     id="standard-basic"
@@ -74,7 +104,11 @@ function CreateLink() {
                     style={{ background: "#ececec" }}
                   >
                     <div>
-                      <img src={Chessboard} alt="foto link" />
+                      <img
+                        src={Chessboard}
+                        style={{ width: "50px", height: "auto" }}
+                        alt="foto link"
+                      />
                     </div>
                     <div>
                       <div className="ms-4">
@@ -106,7 +140,11 @@ function CreateLink() {
             </div>
 
             <div className="rightCard">
-              <img src={Phone1} alt="" />
+              <img
+                src={Phone1}
+                alt=""
+                style={{ height: "auto", width: "300px" }}
+              />
             </div>
           </div>
         </div>

@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Container } from "react-bootstrap";
 import Logo from "../Assets/Frame.png";
 // import { Button } from "bootstrap";
 import { Link } from "react-router-dom";
-import Group from "../Assets/Group.png";
+import Group from "../Assets/temp.png";
 import Vector from "../Assets/Vector.png";
 import Chain from "../Assets/link.png";
 import Logout from "../Assets/logout.png";
 import { useNavigate } from "react-router-dom";
 import "../style/sidebar.css";
+import { UserContext } from "../context/userContext";
+import { setAuthToken } from "../config/api";
+// import { useContext } from "react";
 
 function Sidebar() {
   const navigate = useNavigate();
+  const [user, setUser] = useContext(UserContext);
+
+  function handleLogout() {
+    setUser({
+      type: "LOGOUT",
+      user: {},
+    });
+    navigate("/");
+  }
+
   return (
     <div className="sidebar">
       <Navbar>
         <Container>
           <Navbar.Brand>
             {" "}
-            <img className="ms-5" src={Logo} alt="" />{" "}
+            <img className="logo ms-5" src={Logo} alt="" />{" "}
           </Navbar.Brand>
         </Container>
       </Navbar>
@@ -75,7 +88,7 @@ function Sidebar() {
               <Navbar.Brand>
                 <button
                   style={{ border: "none", backgroundColor: "white" }}
-                  onClick={() => navigate("/")}
+                  onClick={handleLogout}
                 >
                   <img className="pe-2 ms-5" src={Logout} alt="" /> Logout
                 </button>

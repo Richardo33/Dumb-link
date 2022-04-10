@@ -28,3 +28,8 @@
     padding-top: 10px;
     font-size: 15px;
 }
+
+.myLink .rightpart .group img{
+    height: auto;
+    width: 50px;
+}

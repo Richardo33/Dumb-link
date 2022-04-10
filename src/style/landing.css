@@ -23,11 +23,15 @@ p {
 .monitor{
     margin-right: -200px;
     /* background-color: aqua; */
+    height: auto;
+    width: 500px;
 }
 
 .phone {
     margin-left: -75%;
     margin-top: 100px;
+    height: auto;
+    width: 300px;
 }
 
 .btn {
