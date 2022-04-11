@@ -257,17 +257,27 @@ function LandingPage() {
       <div className="box d-flex py-5">
         <Col className="left mx-5">
           <Row className="my-5 px-5">
-            <h1>The Only Link You’ll Ever Need</h1>
+            <h1
+              style={{
+                marginRight: "20px",
+                paddingRight: "20px",
+                fontSize: "64px",
+              }}
+            >
+              The Only Link
+              <br /> You’ll Ever Need
+            </h1>
           </Row>
           <Row className="mb-5 px-5">
-            <p>
-              Add a link for your Social Bio and optimize your social media
-              traffic.
+            <p style={{ color: "white" }}>
+              Add a link for your Social Bio and optimize your <br /> social
+              media traffic.
             </p>
-            <p>safe, fast and easy to use</p>
+            <p style={{ color: "white" }}> safe, fast and easy to use</p>
 
             <Button
               className="btn bg-dark my-3 w-50 text-center"
+              style={{ borderRadius: "10px" }}
               onClick={() => setShow(true)}
             >
               Get Started For Free

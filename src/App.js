@@ -62,7 +62,7 @@ function App() {
       <Route exact path="/" element={<Landing />} />
       <Route exact path="/home" element={<Home />} />
       <Route exact path="/profile" element={<Profile />} />
-      <Route exact path="/preview" element={<Preview />} />
+      <Route exact path="/:id" element={<Preview />} />
       <Route exact path="/createlink" element={<CreateLink />} />
       <Route exact path="/mylink" element={<MyLink />} />
     </Routes>
